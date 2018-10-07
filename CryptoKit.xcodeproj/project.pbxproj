@@ -11,6 +11,8 @@
 		3A3B5993216783F7001C5E99 /* CryptoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B5992216783F7001C5E99 /* CryptoKit.swift */; };
 		3A3B59972167848D001C5E99 /* CryptoKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A3B59952167848D001C5E99 /* CryptoKitPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3A3B59982167848D001C5E99 /* CryptoKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B59962167848D001C5E99 /* CryptoKitPrivate.m */; };
+		D38175A9216A149F001FA894 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38175A7216A149F001FA894 /* Serialization.swift */; };
+		D38175AA216A149F001FA894 /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38175A8216A149F001FA894 /* Encoding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		3A3B599421678454001C5E99 /* CryptoKit.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = CryptoKit.modulemap; sourceTree = "<group>"; };
 		3A3B59952167848D001C5E99 /* CryptoKitPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryptoKitPrivate.h; sourceTree = "<group>"; };
 		3A3B59962167848D001C5E99 /* CryptoKitPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CryptoKitPrivate.m; sourceTree = "<group>"; };
+		D38175A7216A149F001FA894 /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
+		D38175A8216A149F001FA894 /* Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 		3A3B598921678313001C5E99 /* CryptoKit */ = {
 			isa = PBXGroup;
 			children = (
+				D38175A8216A149F001FA894 /* Encoding.swift */,
+				D38175A7216A149F001FA894 /* Serialization.swift */,
 				3A3B59952167848D001C5E99 /* CryptoKitPrivate.h */,
 				3A3B59962167848D001C5E99 /* CryptoKitPrivate.m */,
 				3A3B599421678454001C5E99 /* CryptoKit.modulemap */,
@@ -143,7 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D38175AA216A149F001FA894 /* Encoding.swift in Sources */,
 				3A3B5993216783F7001C5E99 /* CryptoKit.swift in Sources */,
+				D38175A9216A149F001FA894 /* Serialization.swift in Sources */,
 				3A3B59982167848D001C5E99 /* CryptoKitPrivate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
