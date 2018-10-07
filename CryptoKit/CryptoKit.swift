@@ -106,4 +106,13 @@ public struct HDKey {
     let depth: UInt8
     let fingerprint: UInt32
     let childIndex: UInt32
+    
+    public init(privateKey: Data?, publicKey: Data?, chainCode: Data, depth: UInt8, fingerprint: UInt32, childIndex: UInt32) {
+        self.privateKey = privateKey
+        self.publicKey = publicKey
+        self.chainCode = chainCode
+        self.depth = depth
+        self.fingerprint = fingerprint
+        self.childIndex = childIndex
+    }
 }
