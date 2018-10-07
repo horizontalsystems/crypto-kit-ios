@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name = 'HSCryptoKit'
+  spec.name = 'CryptoKit'
   spec.version = '0.1.0'
   spec.summary = 'Crypto library for Swift'
   spec.description = <<-DESC
