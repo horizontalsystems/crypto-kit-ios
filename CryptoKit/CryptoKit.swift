@@ -1,5 +1,5 @@
 import Foundation
-import CryptoKit.Private
+import HSCryptoKit.Private
 import secp256k1
 
 public struct CryptoKit {

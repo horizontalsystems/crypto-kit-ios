@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name = 'CryptoKit'
+  spec.name = 'HSCryptoKit'
   spec.version = '0.1.0'
   spec.summary = 'Crypto library for Swift'
   spec.description = <<-DESC
@@ -20,9 +20,9 @@ Pod::Spec.new do |spec|
 
   spec.pod_target_xcconfig = { 'SWIFT_WHOLE_MODULE_OPTIMIZATION' => 'YES',
                                'APPLICATION_EXTENSION_API_ONLY' => 'YES',
-                               'SWIFT_INCLUDE_PATHS' => '${PODS_ROOT}/CryptoKit/Libraries',
-                               'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/CryptoKit/Libraries/openssl/include" "${PODS_ROOT}/CryptoKit/Libraries/secp256k1/include"',
-                               'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/CryptoKit/Libraries/openssl/lib" "${PODS_ROOT}/CryptoKit/Libraries/secp256k1/lib"' }
+                               'SWIFT_INCLUDE_PATHS' => '${PODS_ROOT}/HSCryptoKit/Libraries',
+                               'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/HSCryptoKit/Libraries/openssl/include" "${PODS_ROOT}/HSCryptoKit/Libraries/secp256k1/include"',
+                               'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/HSCryptoKit/Libraries/openssl/lib" "${PODS_ROOT}/HSCryptoKit/Libraries/secp256k1/lib"' }
   spec.preserve_paths = ['setup', 'Libraries']
   # spec.prepare_command = 'sh WalletKit/setup/build_libraries.sh'
 

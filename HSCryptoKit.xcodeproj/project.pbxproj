@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A3B598721678313001C5E99 /* CryptoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CryptoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A3B598721678313001C5E99 /* HSCryptoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HSCryptoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3B598A21678313001C5E99 /* CryptoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptoKit.h; sourceTree = "<group>"; };
 		3A3B598B21678313001C5E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3B5992216783F7001C5E99 /* CryptoKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoKit.swift; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		3A3B598821678313001C5E99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A3B598721678313001C5E99 /* CryptoKit.framework */,
+				3A3B598721678313001C5E99 /* HSCryptoKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,9 +84,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3A3B598621678313001C5E99 /* CryptoKit */ = {
+		3A3B598621678313001C5E99 /* HSCryptoKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A3B598F21678313001C5E99 /* Build configuration list for PBXNativeTarget "CryptoKit" */;
+			buildConfigurationList = 3A3B598F21678313001C5E99 /* Build configuration list for PBXNativeTarget "HSCryptoKit" */;
 			buildPhases = (
 				3A3B598221678313001C5E99 /* Headers */,
 				3A3B598321678313001C5E99 /* Sources */,
@@ -97,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = CryptoKit;
+			name = HSCryptoKit;
 			productName = CryptoKit;
-			productReference = 3A3B598721678313001C5E99 /* CryptoKit.framework */;
+			productReference = 3A3B598721678313001C5E99 /* HSCryptoKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -117,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3A3B598121678313001C5E99 /* Build configuration list for PBXProject "CryptoKit" */;
+			buildConfigurationList = 3A3B598121678313001C5E99 /* Build configuration list for PBXProject "HSCryptoKit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -129,7 +129,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A3B598621678313001C5E99 /* CryptoKit */,
+				3A3B598621678313001C5E99 /* HSCryptoKit */,
 			);
 		};
 /* End PBXProject section */
@@ -361,7 +361,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A3B598121678313001C5E99 /* Build configuration list for PBXProject "CryptoKit" */ = {
+		3A3B598121678313001C5E99 /* Build configuration list for PBXProject "HSCryptoKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A3B598D21678313001C5E99 /* Debug */,
@@ -370,7 +370,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A3B598F21678313001C5E99 /* Build configuration list for PBXNativeTarget "CryptoKit" */ = {
+		3A3B598F21678313001C5E99 /* Build configuration list for PBXNativeTarget "HSCryptoKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A3B599021678313001C5E99 /* Debug */,

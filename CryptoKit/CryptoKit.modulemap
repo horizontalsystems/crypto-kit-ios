@@ -1,4 +1,4 @@
-framework module CryptoKit {
+framework module HSCryptoKit {
     umbrella header "CryptoKit.h"
 
     export *
