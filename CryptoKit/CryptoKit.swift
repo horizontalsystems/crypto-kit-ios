@@ -100,12 +100,12 @@ public struct CryptoKit {
 }
 
 public struct HDKey {
-    let privateKey: Data?
-    let publicKey: Data?
-    let chainCode: Data
-    let depth: UInt8
-    let fingerprint: UInt32
-    let childIndex: UInt32
+    public let privateKey: Data?
+    public let publicKey: Data?
+    public let chainCode: Data
+    public let depth: UInt8
+    public let fingerprint: UInt32
+    public let childIndex: UInt32
     
     public init(privateKey: Data?, publicKey: Data?, chainCode: Data, depth: UInt8, fingerprint: UInt32, childIndex: UInt32) {
         self.privateKey = privateKey
