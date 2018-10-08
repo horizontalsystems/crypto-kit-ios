@@ -21,12 +21,3 @@ Pods/*
 /screenshot_*.png
 
 history_bash.txt
-
-#Fastlane
-
-fastlane/report.xml
-fastlane/README.md
-
-# Cuckoo
-
-GeneratedMocks.swift

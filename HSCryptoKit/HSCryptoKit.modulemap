@@ -1,5 +1,5 @@
 framework module HSCryptoKit {
-    umbrella header "CryptoKit.h"
+    umbrella header "HSCryptoKit.h"
 
     export *
     module * { export * }

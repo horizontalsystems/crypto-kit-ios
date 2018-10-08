@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A3B598C21678313001C5E99 /* CryptoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A3B598A21678313001C5E99 /* CryptoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A3B5993216783F7001C5E99 /* CryptoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B5992216783F7001C5E99 /* CryptoKit.swift */; };
-		3A3B59972167848D001C5E99 /* CryptoKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A3B59952167848D001C5E99 /* CryptoKitPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3A3B59982167848D001C5E99 /* CryptoKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B59962167848D001C5E99 /* CryptoKitPrivate.m */; };
-		D38175A9216A149F001FA894 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38175A7216A149F001FA894 /* Serialization.swift */; };
-		D38175AA216A149F001FA894 /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38175A8216A149F001FA894 /* Encoding.swift */; };
+		11B3517252B3328EA7A052CF /* BinaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3599CB8DD708BD8FA25E6 /* BinaryConvertible.swift */; };
+		11B3517281DF06BFE01D48B0 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3598F9C87162172B679E4 /* Base58.swift */; };
+		11B3533D86CEBAE811B2AE18 /* CryptoKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 11B351260119C2993AF63E86 /* CryptoKitPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		11B35A4136BC1AF9A2DD9A89 /* CryptoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35E2ABD2BB088BBFDA4D1 /* CryptoKit.swift */; };
+		11B35D4C6A9E0137D0A9663F /* CryptoKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B35C6A334C8F0BF4AA34FD /* CryptoKitPrivate.m */; };
+		3A3B598C21678313001C5E99 /* HSCryptoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A3B598A21678313001C5E99 /* HSCryptoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11B351260119C2993AF63E86 /* CryptoKitPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryptoKitPrivate.h; sourceTree = "<group>"; };
+		11B3598F9C87162172B679E4 /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
+		11B3599CB8DD708BD8FA25E6 /* BinaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryConvertible.swift; sourceTree = "<group>"; };
+		11B35C6A334C8F0BF4AA34FD /* CryptoKitPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CryptoKitPrivate.m; sourceTree = "<group>"; };
+		11B35E2ABD2BB088BBFDA4D1 /* CryptoKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoKit.swift; sourceTree = "<group>"; };
 		3A3B598721678313001C5E99 /* HSCryptoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HSCryptoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A3B598A21678313001C5E99 /* CryptoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptoKit.h; sourceTree = "<group>"; };
-		3A3B598B21678313001C5E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A3B5992216783F7001C5E99 /* CryptoKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoKit.swift; sourceTree = "<group>"; };
-		3A3B599421678454001C5E99 /* CryptoKit.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = CryptoKit.modulemap; sourceTree = "<group>"; };
-		3A3B59952167848D001C5E99 /* CryptoKitPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryptoKitPrivate.h; sourceTree = "<group>"; };
-		3A3B59962167848D001C5E99 /* CryptoKitPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CryptoKitPrivate.m; sourceTree = "<group>"; };
-		D38175A7216A149F001FA894 /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
-		D38175A8216A149F001FA894 /* Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoding.swift; sourceTree = "<group>"; };
+		3A3B598A21678313001C5E99 /* HSCryptoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSCryptoKit.h; sourceTree = "<group>"; };
+		3A3B598B21678313001C5E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		3A3B599421678454001C5E99 /* HSCryptoKit.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = HSCryptoKit.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,10 +38,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11B35A57C6F712CE66D5BECF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				11B35E2ABD2BB088BBFDA4D1 /* CryptoKit.swift */,
+				11B3598F9C87162172B679E4 /* Base58.swift */,
+				11B3599CB8DD708BD8FA25E6 /* BinaryConvertible.swift */,
+				11B35C6A334C8F0BF4AA34FD /* CryptoKitPrivate.m */,
+				11B351260119C2993AF63E86 /* CryptoKitPrivate.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		3A3B597D21678313001C5E99 = {
 			isa = PBXGroup;
 			children = (
-				3A3B598921678313001C5E99 /* CryptoKit */,
+				3A3B598921678313001C5E99 /* HSCryptoKit */,
 				3A3B598821678313001C5E99 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,19 +66,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A3B598921678313001C5E99 /* CryptoKit */ = {
+		3A3B598921678313001C5E99 /* HSCryptoKit */ = {
 			isa = PBXGroup;
 			children = (
-				D38175A8216A149F001FA894 /* Encoding.swift */,
-				D38175A7216A149F001FA894 /* Serialization.swift */,
-				3A3B59952167848D001C5E99 /* CryptoKitPrivate.h */,
-				3A3B59962167848D001C5E99 /* CryptoKitPrivate.m */,
-				3A3B599421678454001C5E99 /* CryptoKit.modulemap */,
-				3A3B5992216783F7001C5E99 /* CryptoKit.swift */,
-				3A3B598A21678313001C5E99 /* CryptoKit.h */,
+				11B35A57C6F712CE66D5BECF /* Source */,
+				3A3B599421678454001C5E99 /* HSCryptoKit.modulemap */,
+				3A3B598A21678313001C5E99 /* HSCryptoKit.h */,
 				3A3B598B21678313001C5E99 /* Info.plist */,
 			);
-			path = CryptoKit;
+			path = HSCryptoKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -76,8 +84,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A3B59972167848D001C5E99 /* CryptoKitPrivate.h in Headers */,
-				3A3B598C21678313001C5E99 /* CryptoKit.h in Headers */,
+				3A3B598C21678313001C5E99 /* HSCryptoKit.h in Headers */,
+				11B3533D86CEBAE811B2AE18 /* CryptoKitPrivate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,10 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D38175AA216A149F001FA894 /* Encoding.swift in Sources */,
-				3A3B5993216783F7001C5E99 /* CryptoKit.swift in Sources */,
-				D38175A9216A149F001FA894 /* Serialization.swift in Sources */,
-				3A3B59982167848D001C5E99 /* CryptoKitPrivate.m in Sources */,
+				11B3517252B3328EA7A052CF /* BinaryConvertible.swift in Sources */,
+				11B3517281DF06BFE01D48B0 /* Base58.swift in Sources */,
+				11B35A4136BC1AF9A2DD9A89 /* CryptoKit.swift in Sources */,
+				11B35D4C6A9E0137D0A9663F /* CryptoKitPrivate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +305,7 @@
 					"$(SRCROOT)/Libraries/secp256k1/include",
 					"$(SRCROOT)/Libraries/openssl/include",
 				);
-				INFOPLIST_FILE = CryptoKit/Info.plist;
+				INFOPLIST_FILE = HSCryptoKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,7 +317,7 @@
 					"$(SRCROOT)/Libraries/openssl/lib",
 					"$(SRCROOT)/Libraries/secp256k1/lib",
 				);
-				MODULEMAP_FILE = "$(SRCROOT)/CryptoKit/CryptoKit.modulemap";
+				MODULEMAP_FILE = "$(SRCROOT)/HSCryptoKit/HSCryptoKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.CryptoKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -336,7 +344,7 @@
 					"$(SRCROOT)/Libraries/secp256k1/include",
 					"$(SRCROOT)/Libraries/openssl/include",
 				);
-				INFOPLIST_FILE = CryptoKit/Info.plist;
+				INFOPLIST_FILE = HSCryptoKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -348,7 +356,7 @@
 					"$(SRCROOT)/Libraries/openssl/lib",
 					"$(SRCROOT)/Libraries/secp256k1/lib",
 				);
-				MODULEMAP_FILE = "$(SRCROOT)/CryptoKit/CryptoKit.modulemap";
+				MODULEMAP_FILE = "$(SRCROOT)/HSCryptoKit/HSCryptoKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.CryptoKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
