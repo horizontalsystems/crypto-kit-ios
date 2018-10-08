@@ -318,7 +318,7 @@
 					"$(SRCROOT)/Libraries/secp256k1/lib",
 				);
 				MODULEMAP_FILE = "$(SRCROOT)/HSCryptoKit/HSCryptoKit.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.CryptoKit;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.horizontalsystems.crypto-kit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
@@ -357,7 +357,7 @@
 					"$(SRCROOT)/Libraries/secp256k1/lib",
 				);
 				MODULEMAP_FILE = "$(SRCROOT)/HSCryptoKit/HSCryptoKit.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.CryptoKit;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.horizontalsystems.crypto-kit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
