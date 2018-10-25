@@ -96,7 +96,28 @@ public struct CryptoKit {
         
         return Data(bytes: publicKey)
     }
-    
+
+
+    public static func ellipticSign(_ hash: Data, privateKey: Data) throws -> Data {
+        let encrypter = EllipticCurveEncrypterSecp256k1()
+        guard var signatureInInternalFormat = encrypter.sign(hash: hash, privateKey: privateKey) else {
+            throw CryptoKitError.signFailed
+        }
+        return encrypter.export(signature: &signatureInInternalFormat)
+    }
+
+    public static func ellipticIsValid(signature: Data, of hash: Data, publicKey: Data, compressed: Bool) -> Bool {
+        guard let recoveredPublicKey = self.ellipticPublicKey(signature: signature, of: hash, compressed: compressed) else { return false }
+        return recoveredPublicKey == publicKey
+    }
+
+    public static func ellipticPublicKey(signature: Data, of hash: Data, compressed: Bool) -> Data? {
+        let encrypter = EllipticCurveEncrypterSecp256k1()
+        var signatureInInternalFormat = encrypter.import(signature: signature)
+        guard var publicKeyInInternalFormat = encrypter.publicKey(signature: &signatureInInternalFormat, hash: hash) else { return nil }
+        return encrypter.export(publicKey: &publicKeyInInternalFormat, compressed: compressed)
+    }
+
 }
 
 public struct HDKey {

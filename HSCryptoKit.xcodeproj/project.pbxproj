@@ -11,6 +11,7 @@
 		11B3517281DF06BFE01D48B0 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3598F9C87162172B679E4 /* Base58.swift */; };
 		11B3533D86CEBAE811B2AE18 /* CryptoKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 11B351260119C2993AF63E86 /* CryptoKitPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		11B35A4136BC1AF9A2DD9A89 /* CryptoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35E2ABD2BB088BBFDA4D1 /* CryptoKit.swift */; };
+		11B35A67FF1CB18697867E61 /* EllipticCurveEncrypterSecp256k1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35DB425834BAC38C8FDD4 /* EllipticCurveEncrypterSecp256k1.swift */; };
 		11B35D4C6A9E0137D0A9663F /* CryptoKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B35C6A334C8F0BF4AA34FD /* CryptoKitPrivate.m */; };
 		3A3B598C21678313001C5E99 /* HSCryptoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A3B598A21678313001C5E99 /* HSCryptoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -20,6 +21,7 @@
 		11B3598F9C87162172B679E4 /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
 		11B3599CB8DD708BD8FA25E6 /* BinaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryConvertible.swift; sourceTree = "<group>"; };
 		11B35C6A334C8F0BF4AA34FD /* CryptoKitPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CryptoKitPrivate.m; sourceTree = "<group>"; };
+		11B35DB425834BAC38C8FDD4 /* EllipticCurveEncrypterSecp256k1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipticCurveEncrypterSecp256k1.swift; sourceTree = "<group>"; };
 		11B35E2ABD2BB088BBFDA4D1 /* CryptoKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoKit.swift; sourceTree = "<group>"; };
 		3A3B598721678313001C5E99 /* HSCryptoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HSCryptoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3B598A21678313001C5E99 /* HSCryptoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSCryptoKit.h; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 				11B35E2ABD2BB088BBFDA4D1 /* CryptoKit.swift */,
 				11B3598F9C87162172B679E4 /* Base58.swift */,
 				11B3599CB8DD708BD8FA25E6 /* BinaryConvertible.swift */,
+				11B35DB425834BAC38C8FDD4 /* EllipticCurveEncrypterSecp256k1.swift */,
 				11B35C6A334C8F0BF4AA34FD /* CryptoKitPrivate.m */,
 				11B351260119C2993AF63E86 /* CryptoKitPrivate.h */,
 			);
@@ -161,6 +164,7 @@
 				11B3517281DF06BFE01D48B0 /* Base58.swift in Sources */,
 				11B35A4136BC1AF9A2DD9A89 /* CryptoKit.swift in Sources */,
 				11B35D4C6A9E0137D0A9663F /* CryptoKitPrivate.m in Sources */,
+				11B35A67FF1CB18697867E61 /* EllipticCurveEncrypterSecp256k1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
