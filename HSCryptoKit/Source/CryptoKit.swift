@@ -16,6 +16,10 @@ public struct CryptoKit {
     public static func sha256sha256(_ data: Data) -> Data {
         return sha256(sha256(data))
     }
+
+    public static func sha3(_ data: Data) -> Data {
+        return Sha3.keccak256(data)
+    }
     
     public static func ripemd160(_ data: Data) -> Data {
         return _Hash.ripemd160(data)

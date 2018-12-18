@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'HSCryptoKit'
-  spec.version = '1.0.1'
+  spec.version = '1.1.0'
   spec.summary = 'Crypto library for Swift'
   spec.description = <<-DESC
                        HSCryptoKit includes crypto functions that can be used in pure Swift. It supports openssl, secp256k1, base58.
@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
                     DESC
   spec.homepage = 'https://github.com/horizontalsystems/crypto-kit-ios'
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
-  spec.author = { 'Horizontal Systems' => 'hello@horizontalsystems.io' }
+  spec.author = { 'Horizontal Systems' => 'hsdao@protonmail.ch' }
   spec.social_media_url = 'http://horizontalsystems.io/'
 
   spec.requires_arc = true
