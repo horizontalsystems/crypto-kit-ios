@@ -14,6 +14,9 @@
 		11B35A67FF1CB18697867E61 /* EllipticCurveEncrypterSecp256k1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35DB425834BAC38C8FDD4 /* EllipticCurveEncrypterSecp256k1.swift */; };
 		11B35D4C6A9E0137D0A9663F /* CryptoKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B35C6A334C8F0BF4AA34FD /* CryptoKitPrivate.m */; };
 		3A3B598C21678313001C5E99 /* HSCryptoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A3B598A21678313001C5E99 /* HSCryptoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58AAA2FA2B789BE2D8E46B23 /* BatchedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AAAB7379AC285CABD17815 /* BatchedCollection.swift */; };
+		58AAA8CAB6C66D1763F66C9C /* Sha3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AAAEE045BD6138CB498968 /* Sha3.swift */; };
+		58AAAD6CC9EAC32F232269A7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AAA7C455BCD9332BF17012 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		3A3B598A21678313001C5E99 /* HSCryptoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSCryptoKit.h; sourceTree = "<group>"; };
 		3A3B598B21678313001C5E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		3A3B599421678454001C5E99 /* HSCryptoKit.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = HSCryptoKit.modulemap; sourceTree = "<group>"; };
+		58AAA7C455BCD9332BF17012 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		58AAAB7379AC285CABD17815 /* BatchedCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchedCollection.swift; sourceTree = "<group>"; };
+		58AAAEE045BD6138CB498968 /* Sha3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sha3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,9 @@
 				11B35DB425834BAC38C8FDD4 /* EllipticCurveEncrypterSecp256k1.swift */,
 				11B35C6A334C8F0BF4AA34FD /* CryptoKitPrivate.m */,
 				11B351260119C2993AF63E86 /* CryptoKitPrivate.h */,
+				58AAAEE045BD6138CB498968 /* Sha3.swift */,
+				58AAA7C455BCD9332BF17012 /* Extensions.swift */,
+				58AAAB7379AC285CABD17815 /* BatchedCollection.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -165,6 +174,9 @@
 				11B35A4136BC1AF9A2DD9A89 /* CryptoKit.swift in Sources */,
 				11B35D4C6A9E0137D0A9663F /* CryptoKitPrivate.m in Sources */,
 				11B35A67FF1CB18697867E61 /* EllipticCurveEncrypterSecp256k1.swift in Sources */,
+				58AAA8CAB6C66D1763F66C9C /* Sha3.swift in Sources */,
+				58AAAD6CC9EAC32F232269A7 /* Extensions.swift in Sources */,
+				58AAA2FA2B789BE2D8E46B23 /* BatchedCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
