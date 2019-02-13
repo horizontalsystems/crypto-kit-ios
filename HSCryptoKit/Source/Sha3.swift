@@ -28,9 +28,9 @@ public final class Sha3 {
     ]
 
     // Parameters for Keccak256
-    private static let blockSize: Int = 136
-    private static let digestLength: Int = 32
-    private static let markByte: UInt8 = 0x01
+    static let blockSize: Int = 136
+    static let digestLength: Int = 32
+    static let markByte: UInt8 = 0x01
 
     public static func keccak256(_ data: Data) -> Data {
         var accumulated = Array<UInt8>()
@@ -42,8 +42,7 @@ public final class Sha3 {
         let markByteIndex = accumulated.count
 
         // We need to always pad the input. Even if the input is a multiple of blockSize.
-        let r = blockSize * 8
-        let q = (r / 8) - (accumulated.count % (r / 8))
+        let q = blockSize - (accumulated.count % blockSize)
         accumulated += Array<UInt8>(repeating: 0, count: q)
 
         accumulated[markByteIndex] |= markByte
@@ -60,7 +59,7 @@ public final class Sha3 {
         return Data(bytes: result[0..<digestLength])
     }
 
-    private static func bigEndianBytes(from value: UInt64) -> Array<UInt8> {
+    static func bigEndianBytes(from value: UInt64) -> Array<UInt8> {
         let valuePointer = UnsafeMutablePointer<UInt64>.allocate(capacity: 1)
         valuePointer.pointee = value
 
@@ -234,4 +233,68 @@ public final class Sha3 {
         }
     }
 
+}
+
+public class KeccakDigest {
+    
+    private var lastBlock = Data()
+    private var accumulatedHash = Array<UInt64>(repeating: 0, count: Sha3.digestLength)
+
+    public init() {
+    }
+    
+    public func update(with data: Data) {
+        var data = data
+
+        if lastBlock.count > 0 {
+            data = lastBlock + data
+        }
+
+        let fullBlocksLength = (data.count / Sha3.blockSize) * Sha3.blockSize
+        lastBlock = data.subdata(in: fullBlocksLength..<data.count)
+
+        guard fullBlocksLength > 0 else {
+            return
+        }
+        
+        var accumulated = Array(data.subdata(in: 0..<fullBlocksLength)).slice
+        
+        for chunk in accumulated.batched(by: Sha3.blockSize) {
+            Sha3.process(block: chunk.uInt64Array.slice, currentHash: &accumulatedHash)
+        }
+    }
+    
+    public func digest() -> Data {
+        var digest = accumulatedHash
+        
+        if lastBlock.count > 0 {
+            var accumulated = Array(lastBlock).slice
+            
+            // Add padding
+            let markByteIndex = accumulated.count
+            
+            // We need to always pad the input. Even if the input is a multiple of blockSize.
+            let q = Sha3.blockSize - (accumulated.count % Sha3.blockSize)
+            accumulated += Array<UInt8>(repeating: 0, count: q)
+            
+            accumulated[markByteIndex] |= Sha3.markByte
+            accumulated[accumulated.count - 1] |= 0x80
+            
+            Sha3.process(block: accumulated.uInt64Array.slice, currentHash: &digest)
+        } else {
+            var accumulated = Array<UInt8>(repeating: 0, count: Sha3.blockSize)
+
+            accumulated[0] |= Sha3.markByte
+            accumulated[accumulated.count - 1] |= 0x80
+
+            Sha3.process(block: accumulated.uInt64Array.slice, currentHash: &digest)
+        }
+        
+        let result = digest.reduce(Array<UInt8>()) { (result, value) -> Array<UInt8> in
+            return result + Sha3.bigEndianBytes(from: value)
+        }
+        
+        return Data(bytes: result[0..<Sha3.digestLength])
+    }
+    
 }

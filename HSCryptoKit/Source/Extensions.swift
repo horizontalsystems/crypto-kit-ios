@@ -44,3 +44,27 @@ extension UInt64 {
     }
 
 }
+
+extension Data {
+
+    public func xor(with key: Data) -> Data {
+        var result = self
+
+        for i in 0..<result.count {
+            result[i] ^= key[i % key.count]
+        }
+
+        return result
+    }
+
+    public func copy() -> Data {
+        var newData = Data(repeating: 0, count: self.count)
+
+        newData.withUnsafeMutableBytes { ptr in
+            self.copyBytes(to: ptr, count: self.count)
+        }
+
+        return newData
+    }
+
+}
