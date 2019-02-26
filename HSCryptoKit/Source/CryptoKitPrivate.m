@@ -3,12 +3,29 @@
 #import <openssl/ripemd.h>
 #import <openssl/hmac.h>
 #import <openssl/ec.h>
+#import <openssl/ecdh.h>
+#import <openssl/aes.h>
+
+
 
 @implementation _Hash
 
 + (NSData *)sha256:(NSData *)data {
     NSMutableData *result = [NSMutableData dataWithLength:SHA256_DIGEST_LENGTH];
     SHA256(data.bytes, data.length, result.mutableBytes);
+    return result;
+}
+
++ (NSData *)concatKDF:(NSData *)data {
+    NSMutableData *result = [NSMutableData dataWithLength:SHA256_DIGEST_LENGTH];
+    unsigned char tmp[] = {0, 0, 0, 1};
+
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, tmp, 4);
+    SHA256_Update(&sha256, data.bytes, 32);
+    SHA256_Final(result.mutableBytes, &sha256);
+
     return result;
 }
 
@@ -31,6 +48,119 @@
     NSMutableData *result = [NSMutableData dataWithLength:length];
     HMAC(EVP_sha512(), key.bytes, (int)key.length, data.bytes, data.length, result.mutableBytes, &length);
     return result;
+}
+
++ (NSData *)hmacsha256:(NSData *)data key:(NSData *)key iv:(NSData *)iv macData:(NSData *)macData {
+    HMAC_CTX ctx;
+    HMAC_CTX_init(&ctx);
+    HMAC_Init(&ctx, key.bytes, key.length, EVP_sha256());
+
+    HMAC_Update(&ctx, iv.bytes, (int) iv.length);
+    HMAC_Update(&ctx, data.bytes, (int) data.length);
+    HMAC_Update(&ctx, macData.bytes, (int) macData.length);
+
+    unsigned int length = SHA256_DIGEST_LENGTH;
+    NSMutableData *result = [NSMutableData dataWithLength:length];
+    HMAC_Final(&ctx, result.mutableBytes, &length);
+
+    HMAC_CTX_cleanup(&ctx);
+
+    return result;
+}
+
+@end
+
+@implementation _ECKey
+
+- (instancetype)privateKey:(NSData *)privateKey publicKey:(NSData *)publicKey {
+    _privateKey = privateKey;
+    _publicKey = publicKey;
+    return self;
+}
+
++ (_ECKey *)random {
+    BN_CTX *ctx = BN_CTX_new();
+    EC_KEY *key = EC_KEY_new_by_curve_name(NID_secp256k1);
+    EC_KEY_generate_key(key);
+    const EC_GROUP *group = EC_KEY_get0_group(key);
+
+    // private key
+    const BIGNUM *prv = EC_KEY_get0_private_key(key);
+    NSMutableData *prvBytes = [NSMutableData dataWithLength:32];
+    BN_bn2bin(prv, prvBytes.mutableBytes);
+
+    // public key
+    const EC_POINT *pubPoint = EC_KEY_get0_public_key(key);
+    NSMutableData *pubBytes = [NSMutableData dataWithLength:65];
+    BIGNUM *pub = BN_new();
+    EC_POINT_point2bn(group, pubPoint, POINT_CONVERSION_UNCOMPRESSED, pub, ctx);
+    BN_bn2bin(pub, pubBytes.mutableBytes);
+
+    BN_CTX_free(ctx);
+    EC_KEY_free(key);
+    BN_free(pub);
+
+    return [[_ECKey alloc] privateKey:prvBytes publicKey:pubBytes];
+}
+
+@end
+
+@implementation _AES
+
++ (NSData *)encrypt:(NSData *)data withKey:(NSData *)key keySize:(NSInteger)keySize iv:(NSData *)iv {
+    NSMutableData *result = [NSMutableData dataWithLength:data.length];
+
+    AES_KEY aesKey;
+    AES_set_encrypt_key(key.bytes, keySize, &aesKey);
+    unsigned char ecountBuf[16] = {0};
+    unsigned int num = 0;
+
+    AES_ctr128_encrypt(data.bytes, result.mutableBytes, (size_t) data.length, &aesKey, iv.bytes, ecountBuf, &num);
+
+    return result;
+}
+
++ (NSData *)encrypt:(NSData *)data withKey:(NSData *)key keySize:(NSInteger)keySize {
+    NSMutableData *result = [NSMutableData dataWithLength:data.length];
+
+    AES_KEY aesKey;
+    AES_set_encrypt_key(key.bytes, keySize, &aesKey);
+
+    AES_encrypt(data.bytes, result.mutableBytes, &aesKey);
+
+    return result;
+}
+
+@end
+
+@implementation _ECDH
+
++ (unsigned char *)agree:(NSData *)privateKey withPublicKey:(NSData *)publicKey {
+    BN_CTX *ctx = BN_CTX_new();
+    EC_KEY *key = EC_KEY_new_by_curve_name(NID_secp256k1);
+    BIGNUM *prv = BN_new();
+    BIGNUM *pub = BN_new();
+    const EC_GROUP *group = EC_KEY_get0_group(key);
+    EC_POINT *pubPoint = EC_POINT_new(group);
+    int secretLen = 32;
+
+    BN_bin2bn(privateKey.bytes, (int) privateKey.length, prv);
+    BN_bin2bn(publicKey.bytes, (int) publicKey.length, pub);
+
+    EC_KEY_set_private_key(key, prv);
+    EC_POINT_bn2point(group, pub, pubPoint, ctx);
+
+    unsigned char *secret = (unsigned char *) malloc(secretLen);
+
+    ECDH_compute_key(secret, secretLen, pubPoint, key, NULL);
+
+    BN_CTX_free(ctx);
+    EC_KEY_free(key);
+    BN_free(prv);
+    BN_free(pub);
+    EC_POINT_free(pubPoint);
+
+    return secret;
 }
 
 @end

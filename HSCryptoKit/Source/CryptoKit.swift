@@ -8,6 +8,11 @@ public struct CryptoKit {
         case signFailed
         case noEnoughSpace
     }
+
+    public static func ecdhAgree(privateKey: Data, withPublicKey publicKey: Data) -> Data {
+        let sharedSecretPtr: UnsafeMutablePointer<UInt8> = _ECDH.agree(privateKey, withPublicKey: publicKey)
+        return Data(buffer: UnsafeBufferPointer(start: sharedSecretPtr, count: 32))
+    }
     
     public static func sha256(_ data: Data) -> Data {
         return _Hash.sha256(data)
