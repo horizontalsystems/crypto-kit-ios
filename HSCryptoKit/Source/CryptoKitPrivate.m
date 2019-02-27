@@ -53,7 +53,7 @@
 + (NSData *)hmacsha256:(NSData *)data key:(NSData *)key iv:(NSData *)iv macData:(NSData *)macData {
     HMAC_CTX ctx;
     HMAC_CTX_init(&ctx);
-    HMAC_Init(&ctx, key.bytes, key.length, EVP_sha256());
+    HMAC_Init(&ctx, key.bytes, (int) key.length, EVP_sha256());
 
     HMAC_Update(&ctx, iv.bytes, (int) iv.length);
     HMAC_Update(&ctx, data.bytes, (int) data.length);
@@ -111,11 +111,11 @@
     NSMutableData *result = [NSMutableData dataWithLength:data.length];
 
     AES_KEY aesKey;
-    AES_set_encrypt_key(key.bytes, keySize, &aesKey);
+    AES_set_encrypt_key(key.bytes, (int) keySize, &aesKey);
     unsigned char ecountBuf[16] = {0};
     unsigned int num = 0;
 
-    AES_ctr128_encrypt(data.bytes, result.mutableBytes, (size_t) data.length, &aesKey, iv.bytes, ecountBuf, &num);
+    AES_ctr128_encrypt(data.bytes, result.mutableBytes, (size_t) data.length, &aesKey, (unsigned char*) iv.bytes, ecountBuf, &num);
 
     return result;
 }
@@ -124,7 +124,7 @@
     NSMutableData *result = [NSMutableData dataWithLength:data.length];
 
     AES_KEY aesKey;
-    AES_set_encrypt_key(key.bytes, keySize, &aesKey);
+    AES_set_encrypt_key(key.bytes, (int) keySize, &aesKey);
 
     AES_encrypt(data.bytes, result.mutableBytes, &aesKey);
 

@@ -257,7 +257,7 @@ public class KeccakDigest {
             return
         }
         
-        var accumulated = Array(data.subdata(in: 0..<fullBlocksLength)).slice
+        let accumulated = Array(data.subdata(in: 0..<fullBlocksLength)).slice
         
         for chunk in accumulated.batched(by: Sha3.blockSize) {
             Sha3.process(block: chunk.uInt64Array.slice, currentHash: &accumulatedHash)
