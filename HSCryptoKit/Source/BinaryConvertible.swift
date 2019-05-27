@@ -6,13 +6,13 @@ public protocol BinaryConvertible {
 }
 
 public extension BinaryConvertible {
-    public static func +(lhs: Data, rhs: Self) -> Data {
+    static func +(lhs: Data, rhs: Self) -> Data {
         var value = rhs
         let data = Data(buffer: UnsafeBufferPointer(start: &value, count: 1))
         return lhs + data
     }
 
-    public static func +=(lhs: inout Data, rhs: Self) {
+    static func +=(lhs: inout Data, rhs: Self) {
         lhs = lhs + rhs
     }
 }

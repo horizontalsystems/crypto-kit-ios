@@ -53,12 +53,15 @@ public struct CryptoKit {
     }
     
     public static func sign(data: Data, privateKey: Data) throws -> Data {
+        precondition(data.count > 0, "Data must be non-zero size")
+        precondition(privateKey.count > 0, "PrivateKey must be non-zero size")
+
         let ctx = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))!
         defer { secp256k1_context_destroy(ctx) }
         
         let signature = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
-        let status = data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            privateKey.withUnsafeBytes { secp256k1_ecdsa_sign(ctx, signature, ptr, $0, nil, nil) }
+        let status = data.withUnsafeBytes { ptr in
+            privateKey.withUnsafeBytes { secp256k1_ecdsa_sign(ctx, signature, ptr.baseAddress!.assumingMemoryBound(to: UInt8.self), $0.baseAddress!.assumingMemoryBound(to: UInt8.self), nil, nil) }
         }
         guard status == 1 else { throw CryptoKitError.signFailed }
         
@@ -67,16 +70,17 @@ public struct CryptoKit {
         
         var length: size_t = 128
         var der = Data(count: length)
-        guard der.withUnsafeMutableBytes({ return secp256k1_ecdsa_signature_serialize_der(ctx, $0, &length, normalizedsig) }) == 1 else { throw CryptoKitError.noEnoughSpace }
+        guard der.withUnsafeMutableBytes({ return secp256k1_ecdsa_signature_serialize_der(ctx, $0.baseAddress!.assumingMemoryBound(to: UInt8.self), &length, normalizedsig) }) == 1 else { throw CryptoKitError.noEnoughSpace }
         der.count = length
         
         return der
     }
     
     public static func createPublicKey(fromPrivateKeyData privateKeyData: Data, compressed: Bool = false) -> Data {
+        precondition(privateKeyData.count > 0, "PrivateKeyData must be non-zero size")
         // Convert Data to byte Array
         let privateKey = privateKeyData.withUnsafeBytes {
-            [UInt8](UnsafeBufferPointer(start: $0, count: privateKeyData.count))
+            [UInt8](UnsafeBufferPointer(start: $0.baseAddress!.assumingMemoryBound(to: UInt8.self), count: privateKeyData.count))
         }
         
         // Create signing context
@@ -103,7 +107,7 @@ public struct CryptoKit {
         secp256k1_ec_pubkey_serialize(ctx, output, outputLen, &c_publicKey, UInt32(compressed ? SECP256K1_EC_COMPRESSED : SECP256K1_EC_UNCOMPRESSED))
         let publicKey = [UInt8](UnsafeBufferPointer(start: output, count: keySize))
         
-        return Data(bytes: publicKey)
+        return Data(publicKey)
     }
 
 

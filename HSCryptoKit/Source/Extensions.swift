@@ -58,10 +58,13 @@ extension Data {
     }
 
     public func copy() -> Data {
+        guard self.count > 0 else {
+            return Data()
+        }
         var newData = Data(repeating: 0, count: self.count)
 
         newData.withUnsafeMutableBytes { ptr in
-            self.copyBytes(to: ptr, count: self.count)
+            self.copyBytes(to: ptr.baseAddress!.assumingMemoryBound(to: UInt8.self), count: self.count)
         }
 
         return newData

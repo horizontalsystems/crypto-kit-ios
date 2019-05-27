@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'HSCryptoKit'
-  spec.version = '1.3.0'
+  spec.version = '1.4.0'
   spec.summary = 'Crypto library for Swift'
   spec.description = <<-DESC
                        HSCryptoKit includes crypto functions that can be used in pure Swift. It supports openssl, secp256k1, base58, sha3 keccak256.
@@ -18,8 +18,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '11.0'
   spec.swift_version = '4.1'
 
-  spec.pod_target_xcconfig = { 'SWIFT_WHOLE_MODULE_OPTIMIZATION' => 'YES',
-                               'APPLICATION_EXTENSION_API_ONLY' => 'YES',
+  spec.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES',
                                'SWIFT_INCLUDE_PATHS' => '${PODS_ROOT}/HSCryptoKit/Libraries',
                                'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/HSCryptoKit/Libraries/openssl/include" "${PODS_ROOT}/HSCryptoKit/Libraries/secp256k1/include"',
                                'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/HSCryptoKit/Libraries/openssl/lib" "${PODS_ROOT}/HSCryptoKit/Libraries/secp256k1/lib"' }

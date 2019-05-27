@@ -56,7 +56,7 @@ public final class Sha3 {
             return result + bigEndianBytes(from: value)
         }
 
-        return Data(bytes: result[0..<digestLength])
+        return Data(result[0..<digestLength])
     }
 
     static func bigEndianBytes(from value: UInt64) -> Array<UInt8> {
@@ -294,7 +294,7 @@ public class KeccakDigest {
             return result + Sha3.bigEndianBytes(from: value)
         }
         
-        return Data(bytes: result[0..<Sha3.digestLength])
+        return Data(result[0..<Sha3.digestLength])
     }
     
 }
