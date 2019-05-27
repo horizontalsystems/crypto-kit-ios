@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   spec.source_files = 'HSCryptoKit/**/*.{h,m,swift}'
   spec.module_map = 'HSCryptoKit/HSCryptoKit.modulemap'
   spec.ios.deployment_target = '11.0'
-  spec.swift_version = '4.1'
+  spec.swift_version = '5'
 
   spec.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES',
                                'SWIFT_INCLUDE_PATHS' => '${PODS_ROOT}/HSCryptoKit/Libraries',
