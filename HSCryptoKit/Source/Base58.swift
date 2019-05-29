@@ -53,7 +53,7 @@ public struct Base58 {
         }
 
         for b in base58 {
-            str = "\(str)\(base58Alphabet[String.Index(utf16Offset: Int(b), in: str)])"
+            str = "\(str)\(base58Alphabet[String.Index(utf16Offset: Int(b), in: base58Alphabet)])"
         }
 
         return str
