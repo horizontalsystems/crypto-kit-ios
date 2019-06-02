@@ -1,9 +1,5 @@
 import secp256k1
 
-enum SomeError: Error {
-    case fuckMax
-}
-
 /// Convenience class over libsecp256k1 methods
 final class EllipticCurveEncrypterSecp256k1 {
     // holds internal state of the c library
@@ -26,7 +22,7 @@ final class EllipticCurveEncrypterSecp256k1 {
     /// - Returns: signature data structure if signing succeeded, otherwise nil.
     func sign(hash: Data, privateKey: Data) -> secp256k1_ecdsa_recoverable_signature? {
         precondition(hash.count == 32, "Hash must be 32 bytes size")
-        precondition(privateKey.count > 32, "PrivateKey must be non-zero")
+        precondition(privateKey.count == 32, "PrivateKey must be 32 bytes size")
         var signature = secp256k1_ecdsa_recoverable_signature()
 
         let status = privateKey.withUnsafeBytes { key -> Int32 in

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'HSCryptoKit'
-  spec.version = '1.4.1'
+  spec.version = '1.4.2'
   spec.summary = 'Crypto library for Swift'
   spec.description = <<-DESC
                        HSCryptoKit includes crypto functions that can be used in pure Swift. It supports openssl, secp256k1, base58, sha3 keccak256.
